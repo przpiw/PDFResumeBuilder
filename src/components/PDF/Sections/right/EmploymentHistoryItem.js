@@ -1,5 +1,5 @@
 import { Text, View } from '@react-pdf/renderer'
-import styles from '../../../styles'
+import styles from '../../../../styles'
 
 export const EmploymentHistoryItem = ({
   text,
@@ -7,12 +7,10 @@ export const EmploymentHistoryItem = ({
   description,
   responsibilities,
 }) => (
-  <View style={{ paddingTop: '20px' }}>
+  <View style={{ paddingBottom: '20px' }}>
     <Text
       style={{
         color: '#000',
-        fontSize: '15',
-        paddingBottom: '3',
         fontSize: '12',
       }}
     >
@@ -22,11 +20,12 @@ export const EmploymentHistoryItem = ({
       {date}
     </Text>
     <Text style={{ fontSize: '11' }}>{description}</Text>
-    {responsibilities &&
+    <Text style={{ fontSize: '11', marginLeft: '15px', marginTop: '4' }}>
+      {responsibilities}
+    </Text>
+    {/* {responsibilities &&
       responsibilities.map((item) => (
-        <Text style={{ fontSize: '11', marginLeft: '15px', marginTop: '4' }}>
-          {item}
-        </Text>
-      ))}
+       
+      ))} */}
   </View>
 )

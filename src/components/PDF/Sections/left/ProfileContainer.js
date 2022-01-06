@@ -1,7 +1,7 @@
 import { Text, View, Image } from '@react-pdf/renderer'
-import styles from '../../../styles'
+import styles from '../../../../styles'
 import { useContext } from 'react'
-import { BuilderContext } from '../../../App'
+import { BuilderContext } from '../../../../App'
 
 const ProfileImage = ({ url }) => (
   <Image
@@ -29,10 +29,16 @@ export const ProfileContainer = ({ name, profession }) => {
       }}
     >
       <ProfileImage url={builder.profileImageUrl} />
-      <View>
+      <View
+        style={{
+          justifyContent: 'center',
+        }}
+      >
         <Text style={styles.name_text}>{builder.name}</Text>
       </View>
+
       <Text style={styles.profession_text}>{builder.profession}</Text>
+
       <View
         style={{
           marginTop: '10px',
@@ -40,6 +46,7 @@ export const ProfileContainer = ({ name, profession }) => {
           width: '10%',
           height: '1px',
           backgroundColor: '#FFF',
+          textAlign: 'center',
         }}
       />
     </View>

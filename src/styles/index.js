@@ -31,7 +31,8 @@ export default StyleSheet.create({
   },
   profession_text: {
     // fontFamily: 'Roboto',
-    color: '#2a2a2a',
+
+    color: '#d1d5db',
     fontSize: '11px',
   },
   heading__text: {
@@ -60,8 +61,6 @@ export default StyleSheet.create({
   skill__item__fill: {
     width: '30%',
     height: '51px',
-    backgroundColor: 'red',
-    color: 'red',
     backgroundColor: '#FFF',
   },
   skill__item__text: {

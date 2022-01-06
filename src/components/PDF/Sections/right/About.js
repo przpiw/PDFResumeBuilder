@@ -1,5 +1,5 @@
 import { Text, View } from '@react-pdf/renderer'
-import styles from '../../../styles'
+import styles from '../../../../styles'
 
 const About = ({ text }) => (
   <View>
@@ -10,7 +10,7 @@ const About = ({ text }) => (
         paddingBottom: '10',
       }}
     >
-      Profile
+      Professional Summary
     </Text>
     <Text style={styles.main__text}>{text}</Text>
   </View>

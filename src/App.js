@@ -1,5 +1,5 @@
-import ResumeEdit from './components/ResumeEdit'
-import ResumeTemplate from './components/ResumeTemplate'
+import ResumeEdit from './components/Editor/ResumeEdit'
+import PreviewScreen from './components/PDF/ResumeTemplate'
 import React from 'react'
 
 export const BuilderContext = React.createContext({})
@@ -10,60 +10,78 @@ function App() {
   )
   const [name, setName] = React.useState('John')
   const [profession, setProfession] = React.useState('Software Engineer')
-  const [about, setAbout] = React.useState('About...')
+  const [about, setAbout] = React.useState(
+    'Recent college graduate with experience in various areas of software engineering, including infrastructure and data analytics. A fast learner who thrives on generating innovative ideas, trouble-shooting and problem-solving, and working with object-oriented programming languages including Python and Java.  '
+  )
   const [force, setForce] = React.useState(0)
   //Careless about re-rendering..
   const [infoState, setInfoState] = React.useState({
     components: [
       {
         header: 'Education',
-        type: 'Info',
+        type: 'Education',
         display: true,
         items: [
           {
-            text: 'Software Engineering - University of Sydney',
+            degree: 'Software Engineering - University of Sydney',
             date: 'Mar 2017 - Dec 2019',
           },
         ],
+      },
+      {
+        header: 'Key Skills',
+        type: 'KeySkills',
+        display: true,
+        text: '• Knowledge of basic coding languages including C++, HTML5, and JavaScript.\n• Basic knowledge of  SQL, NoSQL databases\n• Knowledgable on Node.js, Spring, Hibernate\n• Extensive Linux/Unix experience\n• Software testing (Jest, Chai, Mocha)\n• CI/CD Basics ',
       },
       {
         header: 'Employment History',
         type: 'Employment',
         items: [
           {
-            position: 'Software Engineering - University of Sydney',
+            position: 'Software Engineer - Bank of E-Corp',
             date: 'Mar 2017 - Dec 2019',
-            description: '',
-            responsibilities: '',
+            description:
+              'Bank of E-Corp is a Banking Financial Institution in the US.\nAs a Software Engineer, I work on their banking platform in an Agile environment.\n My daily responsibilities include: ',
+            responsibilities:
+              '• Participating in daily stand up meetings, led by our Scrum Master\n • Utilizing the MEAN stack to enhance and maintain our banking platform \n• Conducting code peer reviews with other members in my team\n• Participating in product demos\n• Documenting all code changes',
+          },
+          {
+            position: 'Junior Software Developer - Steal Mountain',
+            date: 'Mar 2015 - Dec 2016',
+            description:
+              'Bank of E Network is a Banking Financial Institution in the US.\nAs a Software Developer, I work on their banking platform in an Agile environment.\n My daily responsibilities include: ',
+            responsibilities:
+              '• Built RESTful API that served data to the JavaScript front-end based on \n   dynamicially chosen user inputs that handled over 100,000 concurrent users.\n • Built international tool using NodeJS and Pupeteer.js to automate QA. \n• Conducting code peer reviews with other members in my team\n• Documenting all code changes ',
           },
         ],
       },
 
-      // {
-      //   header: 'Skills',
-      //   type: 'Skills',
-      //   display: true,
-      //   items: [
-      //     {
-      //       text: 'Python',
-      //       level: '25%',
-      //     },
-      //   ],
-      // },
-      // {
-      //   header: 'Certification',
-      //   type: 'Info',
-      //   items: [
-      //     {
-      //       text: 'Oracle Certified Associate (OCA)',
-      //       date: 'Mar 2020',
-      //     },
-      //     {
-      //       text: 'AWS Cloud Practitoner',
-      //       date: 'Jul 2020',
-      //     },
-      //   ],
-      // },
+      {
+        header: 'Skills',
+        type: 'Skills',
+        display: true,
+        items: [
+          {
+            text: 'Python',
+            level: '25%',
+          },
+        ],
+      },
+      {
+        header: 'Certification',
+        type: 'Info',
+        items: [
+          {
+            text: 'Oracle Certified Associate (OCA)',
+            date: 'Mar 2020',
+          },
+          {
+            text: 'AWS Cloud Practitoner',
+            date: 'Jul 2020',
+          },
+        ],
+      },
       {
         header: 'Socials',
         type: 'Socials',
@@ -108,14 +126,17 @@ function App() {
       // },
     ],
   })
-  const getComponentData = (type) => {}
+  const getComponentData = (type) => {
+    const data = infoState.components.filter((item) => item.type === type)
+    return data ? data[0] : []
+  }
   const getSocials = () => {
     const socials = infoState.components.filter(
       (item) => item.type === 'Socials'
     )
     return socials ? socials[0] : []
   }
-  const editInfo = (item) => {
+  const updateInfo = (item) => {
     const targetIndex = infoState.components.findIndex(
       (elem) => elem.type === item.type
     )
@@ -123,22 +144,6 @@ function App() {
     setForce(force + 1)
   }
 
-  console.log(
-    infoState.components.filter((item, index) => {
-      console.log(index)
-      return item.header !== 'Education'
-    })
-  )
-  infoState.components.splice(0, 1, {
-    header: 'Education',
-    type: 'Info',
-    items: [
-      {
-        text: 'Software Engineering - University of Sydney',
-        date: 'Mar 2017 - Dec 2019',
-      },
-    ],
-  })
   const addInfo = (item) => {
     infoState.components.pop()
 
@@ -165,13 +170,14 @@ function App() {
           profileImageUrl,
           setProfileImageUrl,
           getSocials,
-          editInfo,
+          updateInfo,
           about,
           setAbout,
+          getComponentData,
         }}
       >
         <ResumeEdit />
-        <ResumeTemplate />
+        <PreviewScreen />
       </BuilderContext.Provider>
     </div>
   )

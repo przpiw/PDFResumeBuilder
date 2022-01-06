@@ -1,5 +1,5 @@
 import { useState, useRef, useContext } from 'react'
-import { BuilderContext } from '../App'
+import { BuilderContext } from '../../App'
 import ToggleButton from './ToggleButton'
 const Info = (header, text, date) => {
   const builder = useContext(BuilderContext)

@@ -1,4 +1,4 @@
-import ReactPDF, { Link, Svg, Path } from '@react-pdf/renderer'
+import { Link, Svg, Path } from '@react-pdf/renderer'
 export const SVGItem = ({ path, url }) => (
   <Link src={url}>
     <Svg
