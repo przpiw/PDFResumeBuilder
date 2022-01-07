@@ -39,7 +39,7 @@ const Projects = () => {
   return (
     <div className='pt-3 px-5 '>
       {projects.items.map((item, index) => (
-        <div className='pb-5'>
+        <div className='pb-5' key={index}>
           <TextInput
             defaultValue={item.name}
             placeholder='Project Name'
