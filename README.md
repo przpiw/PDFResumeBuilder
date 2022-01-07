@@ -1,11 +1,12 @@
 # PDF Resume Builder
 
-## Editor & PDF Preview to customize resume template
+## Editor & PDF Viewer allow to customize resume template
 - Built with react & PDF Renderer
 - Utilizes Styles, Images, SVGs
 - Highly customizable template
 - Clean Design
 - Editor styled with TailwindCSS
+
 
 [Preview](https://i.imgur.com/86faGIw.png)
 
