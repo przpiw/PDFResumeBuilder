@@ -11,7 +11,7 @@ export const EmploymentHistoryItem = ({
     <Text
       style={{
         color: '#000',
-        fontSize: '12',
+        fontSize: '13',
       }}
     >
       {text}
@@ -23,9 +23,5 @@ export const EmploymentHistoryItem = ({
     <Text style={{ fontSize: '11', marginLeft: '15px', marginTop: '4' }}>
       {responsibilities}
     </Text>
-    {/* {responsibilities &&
-      responsibilities.map((item) => (
-       
-      ))} */}
   </View>
 )

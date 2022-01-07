@@ -1,5 +1,6 @@
 import { Text, View } from '@react-pdf/renderer'
 import styles from '../../../../styles'
+import Divider from './Divider'
 
 const About = ({ text }) => (
   <View>
@@ -7,11 +8,11 @@ const About = ({ text }) => (
       style={{
         color: '#000',
         fontSize: '15',
-        paddingBottom: '10',
       }}
     >
       Professional Summary
     </Text>
+    <Divider />
     <Text style={styles.main__text}>{text}</Text>
   </View>
 )

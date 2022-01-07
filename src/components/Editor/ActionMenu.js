@@ -1,38 +1,23 @@
 import { Add } from './Icons/Add'
 import { Remove } from './Icons/Remove'
-const ActionMenu = ({ handleSaveClick, handleAddClick, handleRemoveClick }) => {
+const ActionMenu = ({
+  style,
+  handleSaveClick,
+  handleAddClick,
+  handleRemoveClick,
+}) => {
   return (
-    <div className='flex py-3 flex-row justify-between'>
+    <div className={`flex py-2 flex-row justify-between ${style}`}>
       <button
-        className='  text-white  font-bold text-sm h-7 px-4 rounded-lg w-full flex items-center justify-center sm:w-auto bg-sky-500 dark:highlight-white/20 hover:bg-sky-400 '
+        className='py-1 px-6 border-gray-300  bg-gray-200 text-gray-600 rounded-lg shadow hover:bg-gray-300'
         onClick={handleSaveClick}
       >
-        save
+        Save
       </button>
-      <div className='flex flex-row pt-[3px]'>
-        <Add
-          color='#d1d5db'
-          handleClick={handleAddClick}
-          // handleClick={(e) => {
-          //   setEducation({
-          //     ...education,
-          //     items: [...education.items, newItem],
-          //   })
-          // }}
-        />
+      <div className='flex flex-row pt-[5px]'>
+        <Add color='#d1d5db' handleClick={handleAddClick} />
 
-        <Remove
-          color='#d1d5db'
-          handleClick={handleRemoveClick}
-          // handleClick={() => {
-          //   setEducation({
-          //     ...education,
-          //     items: education.items.filter(
-          //       (item, index) => index < education.items.length - 1
-          //     ),
-          //   })
-          // }}
-        />
+        <Remove color='#d1d5db' handleClick={handleRemoveClick} />
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import Show from './Icons/Show'
 const EmploymentItem = ({ data, index, handleChange }) => {
   const [isToggled, setIsToggled] = useState(true)
   return (
-    <div className='px-5 py-3'>
+    <div className='px-5 py-2'>
       {!isToggled ? (
         <Hide
           handleClick={() => {

@@ -1,22 +1,22 @@
 import { Text, View, Image } from '@react-pdf/renderer'
 import styles from '../../../../styles'
-import { useContext } from 'react'
-import { BuilderContext } from '../../../../App'
 
-const ProfileImage = ({ url }) => (
-  <Image
-    style={{
-      width: '60px',
-      height: '60px',
-      borderRadius: '90',
-      marginBottom: '10',
-    }}
-    src={url}
-  />
+const ProfileImage = ({ url, display }) => (
+  <>
+    {display && (
+      <Image
+        style={{
+          width: '60px',
+          height: '60px',
+          borderRadius: '90',
+        }}
+        src={url}
+      />
+    )}
+  </>
 )
 
-export const ProfileContainer = ({ name, profession }) => {
-  const builder = useContext(BuilderContext)
+export const ProfileContainer = ({ name, profession, url, display }) => {
   return (
     <View
       style={{
@@ -24,25 +24,23 @@ export const ProfileContainer = ({ name, profession }) => {
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: '20',
+        marginBottom: display ? '20px' : '-65px',
         height: '150',
         fontFamily: 'Helvetica-Bold',
       }}
     >
-      <ProfileImage url={builder.profileImageUrl} />
+      <ProfileImage url={url} display={display} />
       <View
         style={{
           justifyContent: 'center',
         }}
       >
-        <Text style={styles.name_text}>{builder.name}</Text>
+        <Text style={styles.name_text}>{name}</Text>
       </View>
-
-      <Text style={styles.profession_text}>{builder.profession}</Text>
-
+      <Text style={styles.profession_text}>{profession}</Text>
       <View
         style={{
           marginTop: '10px',
-          marginBottom: '10px',
           width: '10%',
           height: '1px',
           backgroundColor: '#FFF',

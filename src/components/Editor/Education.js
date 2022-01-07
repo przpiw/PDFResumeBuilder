@@ -3,7 +3,6 @@ import { BuilderContext } from './../../App'
 import ActionMenu from './ActionMenu'
 import EducationItem from './EducationItem'
 
-import TextInput from './TextInput'
 const Education = () => {
   const ctx = useContext(BuilderContext)
   const newItem = {
@@ -39,7 +38,12 @@ const Education = () => {
   return (
     <div className='pt-6'>
       {education.items.map((item, index) => (
-        <EducationItem index={index} data={item} handleChange={handleChange} />
+        <EducationItem
+          key={index}
+          index={index}
+          data={item}
+          handleChange={handleChange}
+        />
       ))}
       <ActionMenu
         handleSaveClick={handleSaveClick}

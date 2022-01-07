@@ -2,6 +2,7 @@ import TextInput from './TextInput'
 import { useState, useContext } from 'react'
 import { BuilderContext } from './../../App'
 import ActionMenu from './ActionMenu'
+import ToggleButton from './ToggleButton'
 
 const Skills = () => {
   const ctx = useContext(BuilderContext)
@@ -17,7 +18,6 @@ const Skills = () => {
       [targetName]: e.target.value,
     }
     skills.items.splice(i, 1, modifiedItem)
-    //ctx.updateInfo(education)
   }
   const handleAddClick = () => {
     setSkills({
@@ -36,8 +36,14 @@ const Skills = () => {
   const handleSaveClick = () => ctx.updateInfo(skills)
   return (
     <div className='pt-10'>
+      <ToggleButton
+        defaultValue={skills.display}
+        handleChange={(name, prop, isEnabled) => {
+          ctx.updateInfo({ ...skills, display: isEnabled })
+        }}
+      />
       {skills.items.map((item, index) => (
-        <div className='flex flex-row py-1'>
+        <div key={index} className='flex flex-row py-1'>
           <TextInput
             defaultValue={item.text}
             name='text'
@@ -62,7 +68,6 @@ const Skills = () => {
         handleAddClick={handleAddClick}
         handleRemoveClick={handleRemoveClick}
       />
-      <pre>{JSON.stringify(skills, null, 1)}</pre>
     </div>
   )
 }

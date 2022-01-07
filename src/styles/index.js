@@ -14,6 +14,7 @@ export default StyleSheet.create({
   section__right: {
     margin: 10,
     padding: 10,
+    paddingTop: 20,
     width: '75%',
   },
   section__left: {
@@ -21,8 +22,6 @@ export default StyleSheet.create({
     backgroundColor: '#084c41',
   },
   name_text: {
-    // fontFamily: 'Roboto',
-    color: '#fff',
     paddingTop: '10px',
     paddingBottom: '5px',
     fontSize: '14px',
@@ -31,7 +30,6 @@ export default StyleSheet.create({
   },
   profession_text: {
     // fontFamily: 'Roboto',
-
     color: '#d1d5db',
     fontSize: '11px',
   },
@@ -50,7 +48,7 @@ export default StyleSheet.create({
     fontSize: '11',
   },
   skill__item__container: {
-    paddingTop: '10px',
+    paddingTop: '3px',
   },
   skill__item: {
     width: '100%',

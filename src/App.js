@@ -5,18 +5,20 @@ import React from 'react'
 export const BuilderContext = React.createContext({})
 
 function App() {
-  const [profileImageUrl, setProfileImageUrl] = React.useState(
-    'https://i.imgur.com/f6L6Y57.png'
-  )
-  const [name, setName] = React.useState('John')
-  const [profession, setProfession] = React.useState('Software Engineer')
-  const [about, setAbout] = React.useState(
-    'Recent college graduate with experience in various areas of software engineering, including infrastructure and data analytics. A fast learner who thrives on generating innovative ideas, trouble-shooting and problem-solving, and working with object-oriented programming languages including Python and Java.  '
-  )
   const [force, setForce] = React.useState(0)
-  //Careless about re-rendering..
+
   const [infoState, setInfoState] = React.useState({
     components: [
+      {
+        type: 'Profile',
+        name: 'John Doe',
+        profession: 'Junior Developer',
+        profileImageURL: 'https://i.imgur.com/f6L6Y57.png',
+        display: true,
+        about:
+          'Recent college graduate with experience in various areas of software engineering, including infrastructure and data analytics. A fast learner who thrives on generating innovative ideas, trouble-shooting and problem-solving, and working with object-oriented programming languages including Python and Java. ',
+      },
+
       {
         header: 'Education',
         type: 'Education',
@@ -37,6 +39,7 @@ function App() {
       {
         header: 'Employment History',
         type: 'Employment',
+        display: true,
         items: [
           {
             position: 'Software Engineer - Bank of E-Corp',
@@ -47,7 +50,7 @@ function App() {
               '• Participating in daily stand up meetings, led by our Scrum Master\n • Utilizing the MEAN stack to enhance and maintain our banking platform \n• Conducting code peer reviews with other members in my team\n• Participating in product demos\n• Documenting all code changes',
           },
           {
-            position: 'Junior Software Developer - Steal Mountain',
+            position: 'Junior Software Developer - Steel Mountain',
             date: 'Mar 2015 - Dec 2016',
             description:
               'Bank of E Network is a Banking Financial Institution in the US.\nAs a Software Developer, I work on their banking platform in an Agile environment.\n My daily responsibilities include: ',
@@ -56,11 +59,23 @@ function App() {
           },
         ],
       },
+      {
+        header: 'Projects',
+        type: 'Projects',
+        display: true,
+        items: [
+          {
+            name: 'Poker Simulator',
+            description:
+              '• Built a full-stack app to allow users to stimulate and visualize outcomes \n    of poker hand against opponents\n • Utilized ski-kit learn in Python to simulate possible outcomes.\n • Used Javascript, Python, SQL, HTML/CSS',
+          },
+        ],
+      },
 
       {
         header: 'Skills',
         type: 'Skills',
-        display: true,
+        display: false,
         items: [
           {
             text: 'Python',
@@ -69,15 +84,16 @@ function App() {
         ],
       },
       {
-        header: 'Certification',
-        type: 'Info',
+        header: 'Certifications',
+        type: 'Certifications',
+        display: true,
         items: [
           {
-            text: 'Oracle Certified Associate (OCA)',
+            name: 'Oracle Certified\nAssociate (OCA)',
             date: 'Mar 2020',
           },
           {
-            text: 'AWS Cloud Practitoner',
+            name: 'AWS Cloud\n Practitoner',
             date: 'Jul 2020',
           },
         ],
@@ -109,21 +125,22 @@ function App() {
           },
         ],
       },
-      // {
-      //   header: 'Contact',
-      //   type: 'Info',
-      //   items: [
-      //     {
-      //       text: '+61 01 012121',
-      //     },
-      //     {
-      //       text: 'eliot@example.com',
-      //     },
-      //     {
-      //       text: 'www.eliotdev.com',
-      //     },
-      //   ],
-      // },
+      {
+        header: 'Contact',
+        type: 'Contact',
+        display: true,
+        items: [
+          {
+            text: '+61 01 012121',
+          },
+          {
+            text: 'eliot@example.com',
+          },
+          {
+            text: 'www.eliotdev.com',
+          },
+        ],
+      },
     ],
   })
   const getComponentData = (type) => {
@@ -144,13 +161,6 @@ function App() {
     setForce(force + 1)
   }
 
-  const addInfo = (item) => {
-    infoState.components.pop()
-
-    setInfoState({
-      components: [...infoState.components, item],
-    })
-  }
   return (
     <div
       style={{
@@ -161,18 +171,8 @@ function App() {
     >
       <BuilderContext.Provider
         value={{
-          name,
-          setName,
-          profession,
-          setProfession,
-          infoState,
-          addInfo,
-          profileImageUrl,
-          setProfileImageUrl,
           getSocials,
           updateInfo,
-          about,
-          setAbout,
           getComponentData,
         }}
       >
