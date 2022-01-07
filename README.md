@@ -8,7 +8,8 @@
 - Editor styled with TailwindCSS
 
 
-[Preview](https://i.imgur.com/86faGIw.png)
+![Preview](https://i.imgur.com/86faGIw.png) 
+
 [Live on](https://pdfr-esume-builder.vercel.app/)
 
 ## Available Scripts
