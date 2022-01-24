@@ -1,5 +1,5 @@
 # PDF Resume Builder
-
+[Live on](https://pdfr-esume-builder.vercel.app/)
 ## Editor & PDF Viewer allow to customize resume template
 - Built with react & PDF Renderer
 - Utilizes Styles, Images, SVGs
@@ -10,7 +10,7 @@
 ----
 ![Preview](https://i.imgur.com/86faGIw.png) 
 ----
-[Live on](https://pdfr-esume-builder.vercel.app/)
+
 
 ## Available Scripts
 
